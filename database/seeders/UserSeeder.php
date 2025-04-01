@@ -15,24 +15,30 @@ class UserSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {   
-        User::truncate();  // WARNING: This deletes all records in the table
-        User::create([
+    { 
+
+        User::firstOrCreate(
+            ['email' => 'tahaYsh@gmail.com'], // Check if user with this email exists
+
+            [
             'name' => 'devtaha',
-            'email' => 'tahaYsh@gmail.com',
             'password' => Hash::make('123'),
             'role' => 'admin',
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now()
-        ]);
+            ]
+        );
 
-        User::create([
+        User::firstOrCreate(
+            ['email' => 'taha2shorafata@gmail.com'], // Check if user with this email exists
+            
+            [
             'name' => 'mrtaha',
-            'email' => 'taha2shorafata@gmail.com',
             'password' => Hash::make('123'),
             'role' => 'representative',
             'updated_at' => Carbon::now(),
             'created_at' => Carbon::now()
-        ]);
+            ]
+        );
     }
 }
