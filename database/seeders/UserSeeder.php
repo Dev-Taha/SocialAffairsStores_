@@ -15,7 +15,8 @@ class UserSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
+    {   
+        User::truncate();  // WARNING: This deletes all records in the table
         User::create([
             'name' => 'devtaha',
             'email' => 'tahaYsh@gmail.com',
